@@ -10,6 +10,8 @@ import time
 from selenium.webdriver import ActionChains
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
+import time, os
+from tkinter.font import Font
 import pyautogui
 from tkinter import messagebox
 
@@ -35,16 +37,14 @@ def show():
 
 def sorgula(deger):
     driver_path ="C:/Users/fthsn/Downloads/chromedriver.exe "
+    browser = webdriver.Chrome(executable_path=driver_path)
 
     if deger ==1 and yrtgir.get():
-        browser = webdriver.Chrome(executable_path=driver_path)
         browser.get("https://www.yurticikargo.com/")
         time.sleep(5)
         browser.find_element_by_xpath("//*[@id='shipment-search-btn']").send_keys(f"{yrtgir.get()}",Keys.ENTER)
 
     elif deger ==2 and mnggir.get():
-
-        browser = webdriver.Chrome(executable_path=driver_path)
         browser.get("https://www.mngkargo.com.tr/")
         browser.find_element_by_xpath("//*[@id='mm-0']/div[4]/div/div/div[1]/ul/li[1]/a").click()
         time.sleep(2)
